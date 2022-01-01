@@ -9,3 +9,5 @@
 - <b>I thus propose a deep learning model that automates tumor detection in histological slides with a similar or better performance than human in order to facilitate clinical cancer diagnosis and treatment.</b><br> 
 ## Data
 21 Gigapixal pathology image sets originate from [The CAMELYON16 CHALLENGE](https://camelyon16.grand-challenge.org/Data/) Dataset, in which each image set consists of a histological slide and corresponding mask that indiates tumor tissue, both in .tiff format. Each slide and mask contains seven zoom levels, in which 0 is the base zoom level and 7 is the highest.<br>
+## Reference
+Liu, Y, et al. Detecting cancer metastases on gigapixel pathology images. *<b>arXiv preprint</b>* arXiv:1703.02442 (2017). [link to paper](https://arxiv.org/pdf/1703.02442.pdf)
