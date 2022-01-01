@@ -19,5 +19,23 @@
    - Check if the center (128 X 128) region of a patch has tumor pixels. If yes, label the patch as tumor (1), otherwise, normal (0).<br>
 3. Below is an example of normal and tumor patches sampled from zoom level 0 and zoom level 1 of the same slide.<br>
 <img src="cancer_normal_tumor_patches.png" width="400" height=400><br>
+## Deep Learning Modeling
+### Image augmentation
+The following augmentation strategies are applied to train dataset:<br>
+1. Rotate, flip and reshape:<br>
+   - Horizontal flip
+   - Vertical flip
+   - Width shift
+   - Height shit
+   - Rotation
+2. Randomize RGB color, brightness and contrast:<br>
+   - Random brightness
+   - Random saturation
+   - Random hue
+   - Random contrast
+### Model structure
+
+ 
+## Results and Summary
 ## Reference
 Liu, Y, et al. Detecting cancer metastases on gigapixel pathology images. *<b>arXiv preprint</b>* arXiv:1703.02442 (2017). [link to paper](https://arxiv.org/pdf/1703.02442.pdf)
