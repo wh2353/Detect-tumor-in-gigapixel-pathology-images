@@ -11,7 +11,7 @@
 21 Gigapixal pathology image sets originate from [The CAMELYON16 CHALLENGE](https://camelyon16.grand-challenge.org/Data/) Dataset, in which each image set consists of a histological slide and corresponding mask that indiates tumor tissue, both in .tiff format. Each slide and mask contains seven zoom levels, in which 0 is the base zoom level and 7 is the highest.<br>
 ## Data Preprocessing
 1. Split 16 images as train, 2 as validation and the rest 3 as test datasets.
-2. Random sample 8000 patches (4000 for each zoom level, 2 zoom levels in total) from the train images and 1600 patches (800 for each zoom level, two zoom levels in total) from the validation images based on the following rules:<br>
+2. Random sample 8000 patches (4000 for each of the two zoom levels) from the train images and 1600 patches (800 for each of the two zoom levels) from the validation images based on the following rules:<br>
    - Patch size is 299 X 299;
    - Percentage of tissue pixels in each patch should be >= 30%;
    - Random number of patch centroids will be sampled from each image according to Multinomial(N patches/2, 1/(N images)) distribution;
