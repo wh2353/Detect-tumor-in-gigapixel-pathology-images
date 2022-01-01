@@ -26,7 +26,7 @@ The following augmentation strategies are applied to train dataset:<br>
    - Horizontal flip
    - Vertical flip
    - Width shift
-   - Height shit
+   - Height shift
    - Rotation
 2. Randomize RGB color, brightness and contrast:<br>
    - Random brightness
