@@ -18,7 +18,7 @@
    - For every centroid, two patches will be selected, one for each zoom level. Those patches, despite different zoom levels, are centered at the same location in the slide image;
    - Check if the center (128 X 128) region of a patch has tumor pixels. If yes, label the patch as tumor (1), otherwise, normal (0).<br>
 3. Below is an example of normal and tumor patches sampled from zoom level 0 and zoom level 1 of the same slide.<br>
-<img src="cancer_normal_tumor_patches.png" width="400" height=400><br>
+<img src="cancer_normal_tumor_patches.png" width=400 height=400><br>
 ## Deep Learning Modeling
 ### Image augmentation
 The following augmentation strategies are applied to train dataset:<br>
@@ -34,8 +34,8 @@ The following augmentation strategies are applied to train dataset:<br>
    - Random hue
    - Random contrast
 ### Model structure
-
- 
+Level 1 and Level 2 patches are first trained separately on InceptionV3 network, then both outputs are concatenated as input to a sequential model for prediction. The scheme of model structure is shown below:<br>   
+<img src="20220101_cancer_image_model_scheme.png" width=600 height=800><br>
 ## Results and Summary
 ## Reference
 Liu, Y, et al. Detecting cancer metastases on gigapixel pathology images. *<b>arXiv preprint</b>* arXiv:1703.02442 (2017). [link to paper](https://arxiv.org/pdf/1703.02442.pdf)
