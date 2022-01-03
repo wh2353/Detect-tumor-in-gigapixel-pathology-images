@@ -18,7 +18,8 @@
    - For every centroid, two patches will be selected, one for each zoom level. Those patches, despite different zoom levels, are centered at the same location in the slide image;
    - Check if the center (128 X 128) region of a patch has tumor pixels. If yes, label the patch as tumor (1), otherwise, normal (0).<br>
 3. Below is an example of normal and tumor patches sampled from zoom level 0 and zoom level 1 of the same slide.<br>
-<img src="cancer_normal_tumor_patches.png" width=400 height=400><br>
+<img src="images/cancer_normal_tumor_patches.png" width=400 height=400><br>
+
 ## Deep Learning Modeling
 ### Image augmentation
 The following augmentation strategies are applied to train dataset:<br>
@@ -33,14 +34,19 @@ The following augmentation strategies are applied to train dataset:<br>
    - Random saturation
    - Random hue
    - Random contrast
+
 ### Model structure
 Level 1 and Level 2 patches are first trained separately on InceptionV3 network, then both outputs are concatenated as input to a sequential model for prediction. The scheme of model structure is shown below:<br>   
-<img src="20220101_cancer_image_model_scheme.png" width=600 height=800><br>
+<img src="images/20220101_cancer_image_model_scheme.png" width=600 height=800><br>
 ### Prediction on test images
-Each test image is divided into to 299 X 299 grids, in which each grid represnts a test patch. Same method is applied to generate test labels for these patches except that all the patches with less than 30% tissues are automatically labeled as 0. Each test patch is first flipped, then 90, 180, 270 degrees rotations are performed individually on the original or flipped patch, which results in 8 patches in total. The final prediction is the averaged predicted value of all 8 patches. 
+Each test image is divided into to 299 X 299 grids, in which each grid represnts a test patch. Same method is applied to generate test labels for these patches except that all the patches with less than 30% tissues are automatically labeled as 0. Each test patch is first flipped, then 90, 180, 270 degrees rotations are performed individually on the original or flipped patch, which results in 8 patches in total. The final prediction is the averaged predicted value of all 8 patches.<br> 
 ## Results and Summary
 Results on test images suggest that current model generally works when the slide image contains large, condensed areas of tumor pixels. However, when tumor pixels are scarce and scattered across the slide, predictability deteriorates. Future work will focus on improving predictions on images where number of normal and tumor pixels are severely imbalanced.<br>
 Visualization of predictions and ground truth labels of test images are shown below, in which purple pixels represent normal tissues while tumor pixels are colored in red.<br>
-<img src="20220101_cancer_prediction_result.png" width=700 height=900><br>
+<img src="images/20220101_cancer_prediction_result.png" width=700 height=900><br>
+## Link to Scripts
+1. [preprocessing](https://github.com/wh2353/Detect-tumor-in-gigapixel-pathology-images/blob/main/notebooks/122421_cancer_image_data_preprocessing_WH.ipynb)<br>
+2. [modeling](https://github.com/wh2353/Detect-tumor-in-gigapixel-pathology-images/blob/main/notebooks/122421_cancer_image_data_modeling.ipynb)<br>
+3. [prediction](https://github.com/wh2353/Detect-tumor-in-gigapixel-pathology-images/blob/main/notebooks/122421_cancer_image_data_prediction.ipynb)<br>
 ## Reference
 Liu, Y, et al. Detecting cancer metastases on gigapixel pathology images. *<b>arXiv preprint</b>* arXiv:1703.02442 (2017). [link to paper](https://arxiv.org/pdf/1703.02442.pdf)
