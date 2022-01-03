@@ -36,6 +36,8 @@ The following augmentation strategies are applied to train dataset:<br>
 ### Model structure
 Level 1 and Level 2 patches are first trained separately on InceptionV3 network, then both outputs are concatenated as input to a sequential model for prediction. The scheme of model structure is shown below:<br>   
 <img src="20220101_cancer_image_model_scheme.png" width=600 height=800><br>
+### Prediction on test images
+Each test image is divided into to 299 X 299 grids, in which each grid represnts a test patch. Same method is applied to generate test labels for these patches except that all the patches with less than 30% tissues are automatically labeled as 0. Each test patch is rotated 0 (original), 90, 180, 270 degrees and a corresponding flipped image is created for each rotation, which results in 8 (1 orignal + 7 new) patches in total. The final prediction is the averaged predicted value of all 8 patches. 
 ## Results and Summary
 <img src="20220101_cancer_prediction_result.png" width=700 height=900><br>
 ## Reference
