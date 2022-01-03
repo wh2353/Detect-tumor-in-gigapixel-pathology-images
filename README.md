@@ -37,5 +37,6 @@ The following augmentation strategies are applied to train dataset:<br>
 Level 1 and Level 2 patches are first trained separately on InceptionV3 network, then both outputs are concatenated as input to a sequential model for prediction. The scheme of model structure is shown below:<br>   
 <img src="20220101_cancer_image_model_scheme.png" width=600 height=800><br>
 ## Results and Summary
+<img src="20220101_cancer_prediction_result.png" width=700 height=900><br>
 ## Reference
 Liu, Y, et al. Detecting cancer metastases on gigapixel pathology images. *<b>arXiv preprint</b>* arXiv:1703.02442 (2017). [link to paper](https://arxiv.org/pdf/1703.02442.pdf)
